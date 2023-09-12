@@ -1,3 +1,66 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+  .hover-scale {
+    transition: transform 0.3s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.1);
+  }
+
+  .default-title-text {
+    color: #FFF;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  .default-p-text {
+    color: #FFF;
+    font-family: Gill Sans, sans-serif;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+
+  .default-link-text {
+    color: #FFF;
+    font-family: 'Gill Sans', sans-serif;
+    font-size: 0.9rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  .logo-text-title {
+    color: #FFF;
+    font-family: Great Vibes, serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .fancy-title-text {
+    color: #000;
+    font-family: Snell Roundhand;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.875px;
+  }
+}
+
+
 .App {
   text-align: center;
 }
@@ -35,4 +98,26 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* This targets the entire scrollbar */
+::-webkit-scrollbar {
+
+  width: 4px;  /* Adjust width for vertical scrollbars here */
+  height: 4px; /* Adjust height for horizontal scrollbars here */
+}
+
+/* This targets the handle or thumb of the scrollbar */
+::-webkit-scrollbar-thumb {
+  padding-top: 10px;
+  background: #280000; /* Change to desired scrollbar handle color */
+  border-radius: 5px;   /* Optional: Add if you want rounded scrollbar handle */
+}
+
+/* This targets the track or groove of the scrollbar */
+::-webkit-scrollbar-track {
+  padding-top: 10px;
+  background: #D9D9D9; /* Change to desired scrollbar track color */
+  border-radius: 5px;   /* Optional: Add if you want rounded scrollbar track */
 }
