@@ -5,6 +5,7 @@ import HeroImageLarge2 from "../assets/large-hero-image-2.png";
 import HeroImageLarge3 from "../assets/large-hero-image-3.png";
 import HeroImageSmall1 from "../assets/small-hero-image-1.png";
 import {changeNavBarColor} from "../services/NavbarChange";
+import useInView from "../hooks/useInView";
 
 const HERO_TYPES = [
     {
@@ -38,15 +39,22 @@ const HERO_TYPES = [
 
 function Hero({}) {
     const [index, setIndex] = useState(0);
+    const {ref, inView} = useInView();
 
     useEffect(() => {
         changeNavBarColor({color: HERO_TYPES[index].top_colour});
     }, [index])
 
+    useEffect(() => {
+        if (inView) {
+            changeNavBarColor({color: HERO_TYPES[index].top_colour});
+        }
+    }, [inView])
 
     return <div
+        ref={ref}
         style={{background: HERO_TYPES[index].background}}
-        className={"flex flex-col md:flex-row w-screen h-[85vh] bg-blue-500 pt-10 p-8 top-px justify-evenly text-left"}>
+        className={"flex flex-col md:flex-row w-screen h-[85vh] bg-blue-500 pt-10 p-8 top-px justify-evenly text-left transition-bg duration-300 ease-in"}>
 
         <ParallaxDiv key={HERO_TYPES[index].title} className={"h-[50vh] md:h-[85vh] w-full md:w-1/2 md:h-0"} speed={0.1}>
             <img

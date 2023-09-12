@@ -1,14 +1,32 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ParallaxDiv from "./parallax-div/ParallaxDiv";
+import useInView from "../hooks/useInView";
+import {changeNavBarColor} from "../services/NavbarChange";
 
 const FeaturedItemRight = ({}) => {
     const [isHovered, setIsHovered] = useState(false);
+    const { ref, inView } = useInView();
 
-    return <div style={{background: isHovered ? "#480B0B" :"#826055"}}
+
+    useEffect(() => {
+        if (inView) {
+            changeNavBarColor({color: "#826055"});
+        }
+    }, [inView])
+
+    useEffect(() => {
+        if (isHovered) {
+            changeNavBarColor({color: "#480B0B"})
+        } else {
+            changeNavBarColor({color: "#826055"})
+        }
+    }, [isHovered])
+
+    return <div ref={ref} style={{background: isHovered ? "#480B0B" :"#826055"}}
                 className={"w-screen p-16 min-h-[70vh] bg-stone-500 flex justify-evenly items-center transition-bg duration-300 ease-in"}
     >
-        <div className={"flex w-full h-full flex-row justify-between"}>
-            <div className={"flex flex-col justify-between max-w-sm"}>
+        <div className={"flex w-full h-full flex-row justify-between max-w-7xl"}>
+            <div className={"flex flex-col justify-between max-w-sm "}>
                 <div className="justify-start items-center gap-96 inline-flex">
                     <div className="flex-col justify-start items-start gap-1.5 inline-flex text-start">
                         <div className={`w-96 text-white text-sm font-light font-['Gill Sans']`}>FEATURED</div>

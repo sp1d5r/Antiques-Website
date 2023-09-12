@@ -1,7 +1,7 @@
 import React from "react";
 
 function Navbar({}) {
-    return <nav id="navbar" className={"sticky bg-red-950 top-0 left-0 w-screen h-20 flex items-center justify-between text-white z-10 p-[45px]"}>
+    return <nav id="navbar" className={"sticky bg-red-950 top-0 left-0 w-screen h-20 flex items-center justify-between text-white z-10 p-[45px] transition-bg duration-300 ease-in"}>
         <div className={"default-link-text flex gap-3"}>
             <a>CHANDELIERS</a>
             <a>WALL LIGHTS</a>
