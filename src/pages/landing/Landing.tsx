@@ -3,6 +3,7 @@ import Hero from "../../components/Hero";
 import Breaker from "../../components/Breaker";
 import FeaturedCollection from "../../components/FeaturedCollection";
 import FeaturedItemRight from "../../components/FeaturedItemRight";
+import OverlayFeaturedCollection from "../../components/OverlayFeaturedCollection";
 
 const COLLECTION = [
     {
@@ -37,6 +38,7 @@ function Landing({}) {
         <Breaker text={"High quality. Luxury. Furniture and Lighting."} />
         <FeaturedCollection collection={COLLECTION} collectionName={"The Royal Chandelier Collection Vol III"}/>
         <FeaturedItemRight />
+        <OverlayFeaturedCollection />
     </div>
 }
 

@@ -6,8 +6,12 @@ type ChangeNavBarColorProps = {
 
 export const changeNavBarColor = ({color}: ChangeNavBarColorProps): void => {
     const navbar = document.getElementById("navbar");
+    const sideOutBar = document.getElementById("sidebar");
 
-    if (navbar) {
+    if (navbar ) {
         navbar.style.backgroundColor = color;
+    }
+    if (sideOutBar) {
+        sideOutBar.style.backgroundColor = color;
     }
 }

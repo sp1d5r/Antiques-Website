@@ -3,6 +3,36 @@
 @import 'tailwindcss/utilities';
 
 @layer utilities {
+  @keyframes fadeInFromRight {
+    0% {
+      transform: translateX(100%); /* Starts off the screen (to the right) */
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); /* Ends at its original position */
+      opacity: 1;
+    }
+  }
+
+  .fadeInFromRight {
+    animation: fadeInFromRight 1s forwards;
+  }
+
+  @keyframes fadeInFromLeft {
+    0% {
+      transform: translateX(-100%); /* Starts off the screen (to the right) */
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0); /* Ends at its original position */
+      opacity: 1;
+    }
+  }
+
+  .fadeInFromLeft {
+    animation: fadeInFromLeft 1s forwards;
+  }
+
   .hover-scale {
     transition: transform 0.3s ease;
   }

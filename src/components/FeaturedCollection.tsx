@@ -28,14 +28,12 @@ const FeatureCollectionItem = ({src, title, soldOut, link} : CollectionItem) => 
 }
 
 const FeaturedCollection = ({collectionName, collection}: FeaturedCollectionProps) => {
-    return <div className="w-screen max-w-7xl min-h-96 pl-3 flex-col justify-start items-start gap-7 inline-flex">
-        <div className="justify-start items-center gap-96 inline-flex">
+    return <div className="w-screen max-w-7xl mt-5 mb-5 min-h-96 pl-3 flex-col justify-start items-start gap-7 inline-flex">
+        <div className="justify-start items-center max-w-screen gap-96 inline-flex">
             <div className="flex-col justify-start items-start gap-1.5 inline-flex text-start">
-                <div className="w-96 text-black text-sm font-light font-['Gill Sans']">FEATURED</div>
-                <div className="text-black text-2xl font-normal font-['Alice'] tracking-wide">{collectionName}
-                </div>
-            </div>
-            <div className="w-24 h-5 relative">
+                <p className="w-96 text-black text-sm font-light font-['Gill Sans']">FEATURED</p>
+                <p className="text-black text-2xl max-w-screen font-normal font-['Alice'] ">{collectionName}
+                </p>
             </div>
         </div>
         <div className="justify-start items-start gap-7 overflow-x-scroll overflow-y-clip pb-10 h-full w-full inline-flex ">
