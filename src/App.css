@@ -2,7 +2,44 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+.slide-bg-button {
+  position: relative;
+  overflow: hidden;
+  --slide-bg-color: black; /* default color */
+  background-color: white;
+}
+
+.slide-bg-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--slide-bg-color); /* use the CSS variable here */
+  width: 0;
+  transition: width 0.5s;
+  z-index: -1;
+}
+
+.slide-bg-button > * {
+  position: relative;
+  z-index: 2;
+}
+
+.slide-bg-button:hover::before {
+  width: 100%;
+}
+
+
+
 @layer utilities {
+
+  .smooth-edge {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  }
+
+
+
   @keyframes fadeInFromRight {
     0% {
       transform: translateX(100%); /* Starts off the screen (to the right) */

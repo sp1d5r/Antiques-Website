@@ -70,7 +70,7 @@ function Hero({}) {
         style={{background: HERO_TYPES[index].background}}
         className={"flex flex-col md:flex-row w-screen min-h-[85vh] bg-blue-500 pt-10 p-8 top-px justify-evenly text-left transition-bg duration-300 ease-in"}>
 
-        <ParallaxDiv key={HERO_TYPES[index].title} className={"hidden md:flex h-[10px] w-full md:w-1/2 md:h-0"} speed={0.1}>
+        <ParallaxDiv key={HERO_TYPES[index].title} className={"hidden md:flex h-[10px] w-full md:w-1/2 md:h-0"} speed={0.3}>
             <img
                 src={HERO_TYPES[index].large_image}
                 alt={HERO_TYPES[index].title}

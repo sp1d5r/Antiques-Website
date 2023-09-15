@@ -4,10 +4,14 @@ interface ParallaxDivProps {
     children?: ReactNode;
     speed?: number;
     className?: string;
+    minTranslate?: number;
+    maxTranslate?: number;
     [x: string]: any; // For any additional props
 }
 
-function ParallaxDiv({ children, speed = 0.3, className = "", ...props }: ParallaxDivProps) {
+
+function ParallaxDiv({ children, speed = 0.3, className = "", minTranslate = -100,
+                         maxTranslate = 100, ...props }: ParallaxDivProps) {
     const parallaxRef = useRef<HTMLDivElement>(null);
 
 
@@ -15,20 +19,14 @@ function ParallaxDiv({ children, speed = 0.3, className = "", ...props }: Parall
         const handleScroll = () => {
             if (parallaxRef.current) {
                 const rect = parallaxRef.current.getBoundingClientRect();
-                const divMiddle = rect.top + (rect.height / 2); // middle of the div relative to viewport
-                const viewportMiddle = window.innerHeight / 2; // middle of the viewport
+                const offsetTop = rect.top; // distance from top of the viewport to the top of the div
 
-                // Check if div's middle is close to the viewport's middle. You can adjust the "10" for more precision.
-                const isNearViewportMiddle = Math.abs(divMiddle - viewportMiddle) <= 10;
+                const proportionCompleted = Math.min(Math.max(1 - (offsetTop / window.innerHeight), 0), 1);
+                const translateYValue = minTranslate + (proportionCompleted * (maxTranslate - minTranslate));
 
-                if (isNearViewportMiddle) {
-                    const scrollPosition = window.pageYOffset;
-                    parallaxRef.current.style.transform = `translateY(${(scrollPosition - rect.top) * speed}px)`;
-                }
+                parallaxRef.current.style.transform = `translateY(${translateYValue}px)`;
             }
         };
-
-
 
         window.addEventListener("scroll", handleScroll);
         return () => {
