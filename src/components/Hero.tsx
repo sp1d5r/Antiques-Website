@@ -68,46 +68,51 @@ function Hero({}) {
     return <div
         ref={ref}
         style={{background: HERO_TYPES[index].background}}
-        className={"flex flex-col md:flex-row w-screen min-h-[85vh] bg-blue-500 pt-10 p-8 top-px justify-evenly text-left transition-bg duration-300 ease-in"}>
+        className={"flex flex-col md:flex-row w-screen min-h-[85vh] bg-blue-500 pt-10 p-8 top-px items-center justify-center text-left transition-bg duration-300 ease-in"}>
 
-        <ParallaxDiv key={HERO_TYPES[index].title} className={"hidden md:flex h-[10px] w-full md:w-1/2 md:h-0"} speed={0.3}>
-            <img
-                src={HERO_TYPES[index].large_image}
-                alt={HERO_TYPES[index].title}
-                className={`block w-full h-[50vh] md:h-[85vh] object-contain ${fadeInFromRight ? "fadeInFromRight" : "fadeInFromLeft"}`}
-            />
-        </ParallaxDiv>
+        <div className={"container flex flex-col justify-center md:flex-row gap-5"}>
+            <ParallaxDiv key={HERO_TYPES[index].title} className={"hidden md:flex h-[10px] w-full md:w-[45%] md:h-0"}
+                minTranslate={-40} maxTranslate={40}
+            >
+                <img
+                    src={HERO_TYPES[index].large_image}
+                    alt={HERO_TYPES[index].title}
+                    className={`block w-full h-[50vh] md:h-[85vh] object-contain ${fadeInFromRight ? "fadeInFromRight" : "fadeInFromLeft"}`}
+                />
+            </ParallaxDiv>
 
-        <div className={"min-h-[70vh] w-full md:w-1/3  flex flex-col gap-1 justify-center items-center gap-5"}>
+            <div className={"min-h-[70vh] w-full md:w-[45%] p-5 flex flex-col gap-1 justify-center items-center gap-5"}>
                 <img src={HERO_TYPES[index].small_image}
                      alt={HERO_TYPES[index].title}
                      key={HERO_TYPES[index].title}
                      className={`block max-w-[300px] w-full h-full object-contain ${fadeInFromRight ? "fadeInFromRight" : "fadeInFromLeft"}`}
                 />
-            <h1 className={"default-title-text"}>{HERO_TYPES[index].title}</h1>
-            <p className={"default-p-text"}>{HERO_TYPES[index].description}</p>
-            <div className={"flex w-full justify-between items-center"}>
-                <button
-                    className={"flex justify-center items-center p-6 space-x-2.5 border-2 border-white text-white hover-scale"}
-                >
-                    DISCOVER MORE
-                </button>
-                <div className={"flex gap-2 p-2"}>
+                <h1 className={"default-title-text"}>{HERO_TYPES[index].title}</h1>
+                <p className={"default-p-text"}>{HERO_TYPES[index].description}</p>
+                <div className={"flex w-full justify-between items-center"}>
                     <button
-                        className={`h-3 w-3 border-2 rounded-3xl ${index === 0 ? "bg-white" : ""}`}
-                        onClick={() => {changeIndex(0)}}
-                    />
-                    <button
-                        className={`h-3 w-3 border-2 rounded-3xl ${index === 1 ? "bg-white" : ""}`}
-                        onClick={() => {changeIndex(1)}}
-                    />
-                    <button
-                        className={`h-3 w-3 border-2 rounded-3xl ${index === 2 ? "bg-white" : ""}`}
-                        onClick={() => {changeIndex(2)}}
-                    />
+                        className={"flex justify-center items-center p-6 space-x-2.5 border-2 border-white text-white hover-scale"}
+                    >
+                        DISCOVER MORE
+                    </button>
+                    <div className={"flex gap-2 p-2"}>
+                        <button
+                            className={`h-3 w-3 border-2 rounded-3xl ${index === 0 ? "bg-white" : ""}`}
+                            onClick={() => {changeIndex(0)}}
+                        />
+                        <button
+                            className={`h-3 w-3 border-2 rounded-3xl ${index === 1 ? "bg-white" : ""}`}
+                            onClick={() => {changeIndex(1)}}
+                        />
+                        <button
+                            className={`h-3 w-3 border-2 rounded-3xl ${index === 2 ? "bg-white" : ""}`}
+                            onClick={() => {changeIndex(2)}}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 }

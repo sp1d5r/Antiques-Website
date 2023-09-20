@@ -80,7 +80,6 @@ function Landing({}) {
         <CheckerboardParallax primaryImage={LargeChairImage} secondaryImage={SquareChairImage} header={"George III mahogany open armchair"} subHeader={"NEW STOCK"} description={"This exquisite piece boasts an intriguing provenance, having originated from a private collection in London."} buttonLink={"/product-page?1"} buttonText={"VIEW STOCK"} />
         <FeaturedItemRight collection={GLOBE_LIGHT_COLLECTION}/>
         <OverlayFeaturedCollection />
-
     </div>
 }
 

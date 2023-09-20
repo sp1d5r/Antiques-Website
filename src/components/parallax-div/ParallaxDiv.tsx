@@ -1,44 +1,47 @@
-import React, {ReactNode, useEffect, useRef} from "react";
+import React, {useEffect, useRef, forwardRef, ReactNode} from "react";
 
 interface ParallaxDivProps {
     children?: ReactNode;
     speed?: number;
-    className?: string;
     minTranslate?: number;
     maxTranslate?: number;
+    reverse?: boolean;
     [x: string]: any; // For any additional props
 }
 
+const ParallaxDiv = forwardRef<HTMLDivElement, ParallaxDivProps>(
+    ({ children, speed = 0.3, minTranslate = -100, maxTranslate = 100, reverse = false, ...props }, ref) => {
+        const internalRef = useRef<HTMLDivElement>(null);
+        const combinedRef = (ref as React.RefObject<HTMLDivElement>) || internalRef;
 
-function ParallaxDiv({ children, speed = 0.3, className = "", minTranslate = -100,
-                         maxTranslate = 100, ...props }: ParallaxDivProps) {
-    const parallaxRef = useRef<HTMLDivElement>(null);
+        useEffect(() => {
+            const handleScroll = () => {
+                if (combinedRef.current) {
+                    const rect = combinedRef.current.getBoundingClientRect();
+                    const offsetTop = rect.top; // distance from top of viewport to top of div
 
+                    let proportionCompleted = Math.min(Math.max(1 - (offsetTop / window.innerHeight), 0), 1);
+                    if (reverse) {
+                        proportionCompleted = 1 - proportionCompleted;
+                    }
 
-    useEffect(() => {
-        const handleScroll = () => {
-            if (parallaxRef.current) {
-                const rect = parallaxRef.current.getBoundingClientRect();
-                const offsetTop = rect.top; // distance from top of the viewport to the top of the div
+                    const translateYValue = minTranslate + (proportionCompleted * (maxTranslate - minTranslate));
+                    combinedRef.current.style.transform = `translateY(${translateYValue}px)`;
+                }
+            };
 
-                const proportionCompleted = Math.min(Math.max(1 - (offsetTop / window.innerHeight), 0), 1);
-                const translateYValue = minTranslate + (proportionCompleted * (maxTranslate - minTranslate));
+            window.addEventListener("scroll", handleScroll);
+            return () => {
+                window.removeEventListener("scroll", handleScroll);
+            };
+        }, [speed, minTranslate, maxTranslate, reverse, children]);
 
-                parallaxRef.current.style.transform = `translateY(${translateYValue}px)`;
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [speed, children]);
-
-    return (
-        <div ref={parallaxRef} className={className} {...props}>
-            {children}
-        </div>
-    );
-}
+        return (
+            <div ref={combinedRef} {...props}>
+                {children}
+            </div>
+        );
+    }
+);
 
 export default ParallaxDiv;

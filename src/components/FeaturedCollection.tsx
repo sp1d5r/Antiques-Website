@@ -1,4 +1,5 @@
 import React from "react";
+import AnimateOnLoadDiv from "./AnimateOnLoadDiv";
 
 type CollectionItem = {
     src: string,
@@ -28,7 +29,7 @@ const FeatureCollectionItem = ({src, title, soldOut, link} : CollectionItem) => 
 }
 
 const FeaturedCollection = ({collectionName, collection}: FeaturedCollectionProps) => {
-    return <div className="w-screen max-w-7xl mt-5 mb-5 min-h-96 pl-3 flex-col justify-start items-start gap-7 inline-flex">
+    return <AnimateOnLoadDiv className="w-screen max-w-7xl mt-5 mb-10 min-h-[80vh] pl-3 flex-col justify-start items-start gap-7 inline-flex">
         <div className="justify-start items-center max-w-screen gap-96 inline-flex">
             <div className="flex-col justify-start items-start gap-1.5 inline-flex text-start">
                 <p className="w-96 text-black text-sm font-light font-['Gill Sans']">FEATURED</p>
@@ -43,7 +44,7 @@ const FeaturedCollection = ({collectionName, collection}: FeaturedCollectionProp
                 })
             }
         </div>
-    </div>
+    </AnimateOnLoadDiv>
 }
 
 export default FeaturedCollection;
