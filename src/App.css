@@ -110,13 +110,17 @@
     text-transform: uppercase;
   }
 
-  .logo-text-title {
+  .logo-text-title, .logo-text-title-black {
     color: #FFF;
     font-family: Great Vibes, serif;
     font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+
+  .logo-text-title-black {
+    color: black;
   }
 
   .fancy-title-text {

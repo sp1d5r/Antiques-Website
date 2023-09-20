@@ -1,6 +1,5 @@
 import React from "react";
 import Lantern from "../assets/lantern/lantern-large.png";
-import BlueLantern from "../assets/lantern/blue-lantern.png";
 import ParallaxDiv from "./parallax-div/ParallaxDiv";
 
 const OverlayFeaturedCollection = ({}) => {

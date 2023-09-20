@@ -11,6 +11,7 @@ import GlobeLightImage from "../../assets/globe-light/globe-light-image2.png";
 import CheckerboardParallax from "../../components/CheckeredParallaxDiv";
 import LargeChairImage from "../../assets/chair/large-chair-image.png";
 import SquareChairImage from "../../assets/chair/square-chair-image.png";
+import OverlayFeatured from "../../components/OverlayFeatured";
 
 const COLLECTION = [
     {
@@ -71,6 +72,7 @@ const GLOBE_LIGHT_COLLECTION = {
     mainImage: GlobeLightImage
 }
 
+
 function Landing({}) {
     return <div>
         <Hero />
@@ -79,7 +81,7 @@ function Landing({}) {
         <FeaturedItemRight collection={ANTIQUE_COLLECTION}/>
         <CheckerboardParallax primaryImage={LargeChairImage} secondaryImage={SquareChairImage} header={"George III mahogany open armchair"} subHeader={"NEW STOCK"} description={"This exquisite piece boasts an intriguing provenance, having originated from a private collection in London."} buttonLink={"/product-page?1"} buttonText={"VIEW STOCK"} />
         <FeaturedItemRight collection={GLOBE_LIGHT_COLLECTION}/>
-        <OverlayFeaturedCollection />
+        <OverlayFeatured />
     </div>
 }
 
