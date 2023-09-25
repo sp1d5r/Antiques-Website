@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
-import useInView from "../hooks/useInView";
-import {changeNavBarColor} from "../services/NavbarChange";
-import ParallaxDiv from "./parallax-div/ParallaxDiv";
+import useInView from "../../hooks/useInView";
+import {changeNavBarColor} from "../../services/NavbarChange";
+import ParallaxDiv from "../animated/parallax-div/ParallaxDiv";
 
 interface CheckerboardParallaxProps {
     primaryImage: string;
@@ -23,7 +23,7 @@ const CheckerboardParallax = ({ primaryImage, secondaryImage, header, subHeader,
     }, [inView])
 
     return (
-        <section ref={ref} className="relative block md:block lg:block content-dark container m-auto p-8">
+        <section ref={ref} className="relative block md:block lg:block content-dark container m-auto p-8 mt-4 mb-4">
             <div  className="relative container padding-top-md padding-bottom-md">
                 <div className="flex flex-col md:flex-row md:items-center">
                     <div className="CheckerboardParallax__image-panel w-full min-h-full md:w-1/2 xl:w-[56%]">
@@ -37,7 +37,7 @@ const CheckerboardParallax = ({ primaryImage, secondaryImage, header, subHeader,
                         </div>
                     </div>
 
-                    <ParallaxDiv minTranslate={-50} maxTranslate={50} className="CheckerboardParallax__text-panel w-full min-h-full md:w-1/2 xl:w-[46%]">
+                    <ParallaxDiv minTranslate={-50} maxTranslate={50} className="CheckerboardParallax__text-panel w-full min-h-full md:w-1/2 xl:w-[46%] pt-8 pb-8">
                         <div className="padding-top-md padding-bottom-md text-left xl:pb-28 md:px-16 lg:px-20 xl:px-28 2xl:px-40">
                             <div className="content flex flex-col gap-1.5">
                                 <h2 className="text-subheading text-black text-sm font-light font-['Gill Sans']">{subHeader}</h2>

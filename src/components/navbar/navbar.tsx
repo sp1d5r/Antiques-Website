@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
 
 function Navbar() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     return (
         <>
-            <nav id="navbar" className={"sticky bg-red-950 px-8 top-0 left-0 w-screen h-[70px] flex items-center justify-between text-white z-10 p-[20px] transition-bg duration-300 ease-in"}>
+            <nav id="navbar" className={"sticky bg-red-950 px-8 top-0 left-0 w-screen h-[70px] flex items-center justify-between text-white z-20 p-[20px] transition-bg duration-300 ease-in"}>
 
                 {/* This will display normally on larger screens and will be hidden on smaller screens */}
                 <div className={"hidden lg:flex default-link-text gap-3"}>
@@ -15,7 +14,7 @@ function Navbar() {
                     <a href={"/products?type=chandeliers"}>ANTIQUES</a>
                 </div>
 
-                <a className={"logo-text-title"}>Matthew Upham Antiques</a>
+                <a href={"/"} className={"logo-text-title text-2xl"}>Matthew Upham Antiques</a>
 
                 {/* Toggle Button */}
                 <button className="lg:hidden" onClick={() => setSidebarOpen(!isSidebarOpen)}>

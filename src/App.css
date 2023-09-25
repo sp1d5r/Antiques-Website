@@ -37,6 +37,11 @@
 
 @layer utilities {
 
+  .mobile-max-width {
+    max-width: max(45%, 350px);
+  }
+
+
   .smooth-edge {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
   }
@@ -100,7 +105,7 @@
     letter-spacing: 2px;
   }
 
-  .default-link-text {
+  .default-link-text, .default-link-text-black {
     color: #FFF;
     font-family: 'Gill Sans', sans-serif;
     font-size: 0.9rem;
@@ -110,10 +115,13 @@
     text-transform: uppercase;
   }
 
+  .default-link-text-black {
+    color: #000;
+  }
+
   .logo-text-title, .logo-text-title-black {
     color: #FFF;
     font-family: Great Vibes, serif;
-    font-size: 1.8rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -137,6 +145,7 @@
 
 .App {
   text-align: center;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -177,9 +186,8 @@
 
 /* This targets the entire scrollbar */
 ::-webkit-scrollbar {
-
-  width: 4px;  /* Adjust width for vertical scrollbars here */
-  height: 4px; /* Adjust height for horizontal scrollbars here */
+  width: 2px;  /* Adjust width for vertical scrollbars here */
+  height: 2px; /* Adjust height for horizontal scrollbars here */
 }
 
 /* This targets the handle or thumb of the scrollbar */

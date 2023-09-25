@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import ParallaxDiv from "./parallax-div/ParallaxDiv";
+import ParallaxDiv from "./animated/parallax-div/ParallaxDiv";
 import HeroImageLarge1 from "../assets/hero/large-hero-image-2.png";
 import HeroImageLarge2 from "../assets/hero/antique-hero-image-2.png";
 import HeroImageLarge3 from "../assets/hero/golden-hero-large-4.png";

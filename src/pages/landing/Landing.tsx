@@ -1,17 +1,16 @@
 import React from "react";
 import Hero from "../../components/Hero";
 import Breaker from "../../components/Breaker";
-import FeaturedCollection from "../../components/FeaturedCollection";
-import FeaturedItemRight from "../../components/FeaturedItemRight";
-import OverlayFeaturedCollection from "../../components/OverlayFeaturedCollection";
+import FeaturedCollection from "../../components/collections/FeaturedCollection";
+import FeaturedItemRight from "../../components/collections/FeaturedItemRight";
 import AnqituesMask from "../../assets/antiques-mask.png";
 import Antiques from "../../assets/antiques2.png";
 import GlobeLightMask from "../../assets/globe-light/globe-light-mask.png";
 import GlobeLightImage from "../../assets/globe-light/globe-light-image2.png";
-import CheckerboardParallax from "../../components/CheckeredParallaxDiv";
+import CheckerboardParallax from "../../components/collections/CheckeredParallaxDiv";
 import LargeChairImage from "../../assets/chair/large-chair-image.png";
 import SquareChairImage from "../../assets/chair/square-chair-image.png";
-import OverlayFeatured from "../../components/OverlayFeatured";
+import OverlayFeatured from "../../components/collections/OverlayFeatured";
 
 const COLLECTION = [
     {
