@@ -5,10 +5,10 @@ function Navbar() {
 
     return (
         <>
-            <nav id="navbar" className={"sticky bg-red-950 px-8 top-0 left-0 w-screen h-[70px] flex items-center justify-between text-white z-20 p-[20px] transition-bg duration-300 ease-in"}>
+            <nav id="navbar" className={"sticky bg-red-950 px-8 top-0 left-0 w-screen min-h-[70px] flex items-center justify-between text-white z-50 p-[20px] transition-bg duration-300 ease-in"}>
 
                 {/* This will display normally on larger screens and will be hidden on smaller screens */}
-                <div className={"hidden lg:flex default-link-text gap-3"}>
+                <div className={"hidden lg:flex default-link-text gap-3 text-xl"}>
                     <a href={"/products?type=chandeliers"}>CHANDELIERS</a>
                     <a href={"/products?type=chandeliers"}>WALL LIGHTS</a>
                     <a href={"/products?type=chandeliers"}>ANTIQUES</a>

@@ -29,11 +29,11 @@ const FeatureCollectionItem = ({src, title, soldOut, link} : CollectionItem) => 
 }
 
 const FeaturedCollection = ({collectionName, collection}: FeaturedCollectionProps) => {
-    return <AnimateOnLoadDiv className="w-screen max-w-7xl mt-5 mb-10 min-h-[50vh] pl-3 md:pl-10 flex-col justify-start items-start gap-7 inline-flex">
+    return <AnimateOnLoadDiv className="container w-screen max-w-7xl mt-5 mb-10 min-h-[50vh] pl-3 md:pl-10 flex-col justify-start items-start gap-7 inline-flex">
         <div className="justify-start items-center max-w-screen gap-96 inline-flex">
             <div className="flex-col justify-start items-start gap-1.5 inline-flex text-start">
                 <p className="w-96 text-black text-sm font-light font-['Gill Sans']">FEATURED</p>
-                <p className="text-black text-2xl max-w-screen font-normal font-['Alice'] ">{collectionName}
+                <p className="heading-text-default-black ">{collectionName}
                 </p>
             </div>
         </div>

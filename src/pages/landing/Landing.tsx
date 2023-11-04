@@ -4,7 +4,7 @@ import Breaker from "../../components/Breaker";
 import FeaturedCollection from "../../components/collections/FeaturedCollection";
 import FeaturedItemRight from "../../components/collections/FeaturedItemRight";
 import AnqituesMask from "../../assets/antiques-mask.png";
-import Antiques from "../../assets/antiques2.png";
+import Antiques from "../../assets/Antiques3.png";
 import GlobeLightMask from "../../assets/globe-light/globe-light-mask.png";
 import GlobeLightImage from "../../assets/globe-light/globe-light-image2.png";
 import CheckerboardParallax from "../../components/collections/CheckeredParallaxDiv";
@@ -40,15 +40,15 @@ const COLLECTION = [
 ]
 
 const ANTIQUE_COLORS = {
-    imgHovered: "#2f0000",
-    buttonHovered: "#480B0B",
-    normal: "#6B1616"
+    imgHovered: "#321911",
+    buttonHovered: "#321911",
+    normal: "#572c20"
 }
 
 const ANTIQUE_COLLECTION = {
     colors: ANTIQUE_COLORS,
     collectionType: "FEATURED",
-    collectionName: "Antique Home Collection",
+    collectionName: "ANTIQUE HOME COLLECTION",
     collectionDescription: "Style your home using a collection of our antique sofas,  mirrors and decour.",
     callToAction: "DISCOVER MORE",
     maskImage: AnqituesMask,
@@ -58,13 +58,13 @@ const ANTIQUE_COLLECTION = {
 const GLOBE_LIGHT_COLORS = {
     imgHovered: "#00092f",
     buttonHovered: "#050c2b",
-    normal: "#0b1748"
+    normal: "#050c2b"
 }
 
 const GLOBE_LIGHT_COLLECTION = {
     colors: GLOBE_LIGHT_COLORS,
     collectionType: "DISCOVER",
-    collectionName: "Globe Light",
+    collectionName: "GLOBE LIGHT",
     collectionDescription: "A patinated iron, clear glass and amethyst tinted faceted crystal flowers globe light. French, Circa 1930.",
     callToAction: "SEE PRODUCT",
     maskImage: GlobeLightMask,
@@ -76,11 +76,11 @@ function Landing({}) {
     return <div>
         <Hero />
         <Breaker text={"High quality. Luxury. Furniture and Lighting."} />
-        <FeaturedCollection collection={COLLECTION} collectionName={"The Royal Chandelier Collection Vol III"}/>
+        <FeaturedCollection collection={COLLECTION} collectionName={"THE ROYAL CHANDELIER COLLECTION VOL III"}/>
+        <CheckerboardParallax primaryImage={LargeChairImage} secondaryImage={SquareChairImage} header={"GEORGE III OPEN ARMCHAIR"} subHeader={"NEW STOCK"} description={"This exquisite piece boasts an intriguing provenance, having originated from a private collection in London."} buttonLink={"/product-page?1"} buttonText={"VIEW STOCK"} />
         <FeaturedItemRight collection={ANTIQUE_COLLECTION}/>
-        <CheckerboardParallax primaryImage={LargeChairImage} secondaryImage={SquareChairImage} header={"George III mahogany open armchair"} subHeader={"NEW STOCK"} description={"This exquisite piece boasts an intriguing provenance, having originated from a private collection in London."} buttonLink={"/product-page?1"} buttonText={"VIEW STOCK"} />
-        <FeaturedItemRight collection={GLOBE_LIGHT_COLLECTION}/>
         <OverlayFeatured />
+        <FeaturedItemRight collection={GLOBE_LIGHT_COLLECTION}/>
     </div>
 }
 

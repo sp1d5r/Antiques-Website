@@ -41,18 +41,18 @@ const HERO_TYPES = [
 
 function Hero({}) {
     const [index, setIndex] = useState(0);
+    const [direction, setDirection] = useState(1);
     const {ref, inView} = useInView();
     const [fadeInFromRight, setFadeInFromRight] = useState(true);
 
     useEffect(() => {
-        changeNavBarColor({color: HERO_TYPES[index].top_colour});
-    }, [index])
-
-    useEffect(() => {
-        if (inView) {
+        const scrollY = window.scrollY;
+        const viewportHeight = 1000;
+        console.log(scrollY, scrollY < viewportHeight)
+        if (inView && scrollY < viewportHeight) {
             changeNavBarColor({color: HERO_TYPES[index].top_colour});
         }
-    }, [inView])
+    }, [inView, index])
 
     const changeIndex = (_index: number) => {
         if (_index === index) return;
@@ -64,6 +64,27 @@ function Hero({}) {
             setIndex(_index);
         }
     }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prevIndex) => {
+                let nextIndex = prevIndex + direction;
+
+                // If we reach the end or the beginning, reverse the direction
+                if (nextIndex >= HERO_TYPES.length || nextIndex < 0) {
+                    setDirection(-direction);
+                    nextIndex = prevIndex + -direction; // Move to the next item in the new direction
+                    setFadeInFromRight(direction < 0); // Set the animation based on direction
+                } else {
+                    setFadeInFromRight(direction > 0);
+                }
+
+                return nextIndex;
+            });
+        }, 3000); // Change image every 3000 milliseconds (3 seconds)
+
+        return () => clearInterval(interval); // Clear the interval when the component unmounts
+    }, [direction]);
 
     return <div
         ref={ref}
@@ -81,13 +102,13 @@ function Hero({}) {
                 />
             </ParallaxDiv>
 
-            <div className={"min-h-[70vh] w-full md:w-[45%] p-5 flex flex-col gap-1 justify-center items-center gap-5"}>
+            <div className={"min-h-[70vh] w-full md:w-[45%] p-5 flex flex-col gap-1 justify-center items-center gap-5 text-left"}>
                 <img src={HERO_TYPES[index].small_image}
                      alt={HERO_TYPES[index].title}
                      key={HERO_TYPES[index].title}
                      className={`block max-w-[300px] w-full h-full object-contain ${fadeInFromRight ? "fadeInFromRight" : "fadeInFromLeft"}`}
                 />
-                <h1 className={"default-title-text"}>{HERO_TYPES[index].title}</h1>
+                <h1 className={"heading-text-default p-4"}>{HERO_TYPES[index].title}</h1>
                 <p className={"default-p-text"}>{HERO_TYPES[index].description}</p>
                 <div className={"flex w-full justify-between items-center"}>
                     <button

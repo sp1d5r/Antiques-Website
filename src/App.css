@@ -4,7 +4,6 @@
 
 .slide-bg-button {
   position: relative;
-  overflow: hidden;
   --slide-bg-color: black; /* default color */
   background-color: white;
 }
@@ -95,24 +94,51 @@
     text-transform: uppercase;
   }
 
-  .default-p-text {
+  .default-p-text, .default-p-text-black, .default-h1-text, .small-default-p-text{
     color: #FFF;
     font-family: Gill Sans, sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
     letter-spacing: 2px;
   }
 
+  .default-p-text-black {
+    color: #000;
+    font-size: 1.2rem
+  }
+
+  .small-default-p-text {
+    font-size: 1rem;
+  }
+
+  .heading-text-default, .heading-text-default-black, .sub-heading-text-default {
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 1.875rem;
+    font-family: 'Alice', serif;
+  }
+  .heading-text-default-black {
+    color: #000000;
+  }
+
+  .sub-heading-text-default {
+    font-size: 1.5;
+  }
+
   .default-link-text, .default-link-text-black {
     color: #FFF;
     font-family: 'Gill Sans', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     line-height: normal;
     text-transform: uppercase;
+  }
+
+  .default-h1-text {
+    font-size: 2rem;
   }
 
   .default-link-text-black {
@@ -145,13 +171,51 @@
 
 .App {
   text-align: center;
-  overflow: hidden;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
+.container {
+  width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

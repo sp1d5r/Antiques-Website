@@ -5,6 +5,7 @@ import {changeNavBarColor} from "../../services/NavbarChange";
 import AnqituesMask from "../../assets/antiques-mask.png";
 import Antiques from "../../assets/antiques2.png";
 import AnimateOnLoadDiv from "../AnimateOnLoadDiv";
+import AnimatedDiv from "../buttons/AnimatedDiv";
 
 const COLORS = {
     imgHovered: "#2f0000",
@@ -15,7 +16,7 @@ const COLORS = {
 const COLLECTION = {
     colors: COLORS,
     collectionType: "FEATURED",
-    collectionName: "Antique Home Collection",
+    collectionName: "ANTIQUE HOME COLLECTION",
     collectionDescription: "Style your home using a collection of our antique sofas,  mirrors and decour.",
     callToAction: "DISCOVER MORE",
     maskImage: AnqituesMask,
@@ -51,22 +52,24 @@ const FeaturedItemRight = ({collection = COLLECTION}) => {
     }, [isHovered, imgHovered])
 
     return <div ref={ref} style={{background: getHoveredColour()}}
-                className={"relative -z-0 w-screen p-4 md:p-20 min-h-[70vh] bg-stone-500 flex justify-center items-center transition-bg duration-300 ease-in"}
+                className={" relative -z-0 w-screen p-4 md:p-20 min-h-[70vh] bg-stone-500 flex justify-center items-center transition-bg duration-300 ease-in"}
     >
         <img className={"opacity-5 absolute top-0 left-0 h-full w-full -z-20 object-cover"} src={collection.maskImage} alt={""}>
 
         </img>
-        <div className={"flex -z-10 gap-16 flex-wrap-reverse w-full min-h-full flex-row  justify-center xl:justify-between"}>
+        <div className={"container flex -z-10 gap-16 flex-wrap-reverse w-full min-h-full flex-row  justify-center xl:justify-between"}>
             <AnimateOnLoadDiv className={"flex flex-col justify-evenly mobile-max-width  gap-10"}>
                 <div className="flex-col justify-start items-start gap-1.5 inline-flex text-start">
                     <div className={`max-w-full text-white text-sm font-light font-['Gill Sans']`}>{collection.collectionType}</div>
-                    <div className="text-white text-2xl font-normal font-['Alice'] ">{collection.collectionName}
+                    <div className="text-white text-3xl font-normal font-['Alice'] ">{collection.collectionName}
                     </div>
-                    <div className="text-white text-xl font-normal ">{collection.collectionDescription}
+                    <div className="default-p-text">{collection.collectionDescription}
                     </div>
                 </div>
-                <button
-                    className={"flex justify-center items-center p-6 space-x-2.5 border-2 border-white text-white"}
+
+                <AnimatedDiv
+                    buttonText={collection.callToAction}
+                    bg={collection.colors.imgHovered}
                     onMouseOver={() => {
                         console.log("in")
                         setIsHovered(true)
@@ -75,10 +78,8 @@ const FeaturedItemRight = ({collection = COLLECTION}) => {
                         setIsHovered(false)
                         console.log("out")
                     }}
-                    style={{background: getHoveredColour()}}
-                >
-                    {collection.callToAction}
-                </button>
+
+                />
 
             </AnimateOnLoadDiv>
             <ParallaxDiv maxTranslate={20} minTranslate={-20}>

@@ -5,7 +5,7 @@ type BreakerProps = {
 }
 
 const Breaker = ({text} : BreakerProps) => {
-    return <div className={"min-h-[25vh] pt-40 pb-20 flex justify-center items-center"}>
+    return <div className={"container min-h-[25vh] pt-40 pb-20 flex justify-center items-center"}>
         <p className={"fancy-title-text"}>{text}</p>
     </div>
 }
